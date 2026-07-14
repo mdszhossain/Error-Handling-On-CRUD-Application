@@ -37,6 +37,7 @@ const editLogic = require("./logic/editRoute");
 const updateLogic = require("./logic/updateLogic");
 const newLogic = require("./logic/newRoute");
 const createLogic = require("./logic/createRoute");
+const deleteLogic = require("./logic/deleteRoute");
 
 // wrapAsync
 function wrapAsync(fn) {
@@ -63,6 +64,8 @@ app.get("/employees/:id/edit", wrapAsync(editLogic.func));
 app.patch("/employees/:id", wrapAsync(updateLogic.func));
 // create route
 app.post("/employees", wrapAsync(createLogic.func));
+// delete route
+app.delete("/employees/:id", wrapAsync(deleteLogic.func));
 
 // page not found error
 app.use((req, res, next) => {
