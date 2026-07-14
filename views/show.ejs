@@ -1,0 +1,31 @@
+<%- layout("./layouts/boilerplate") %>
+
+<section class="detail-card">
+    <div class="detail-header">
+        <div>
+            <p class="eyebrow">Employee Profile</p>
+            <h2><%= employee.empName %></h2>
+        </div>
+        <a href="/employees" class="back-btn">← Back to List</a>
+    </div>
+
+    <div class="detail-grid">
+        <div class="detail-item">
+            <span class="detail-label">Designation</span>
+            <p><%= employee.empDesignation %></p>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Salary</span>
+            <p>$<%= employee.empSalary %></p>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Contact</span>
+            <p><%= employee.empContact %></p>
+        </div>
+    </div>
+
+    <div class="detail-actions">
+        <a href="/employees/<%= employee._id %>/edit" class="action-btn primary">Edit Employee</a>
+        <a href="/employees" class="action-btn secondary">View All Employees</a>
+    </div>
+</section>

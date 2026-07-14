@@ -31,6 +31,7 @@ app.engine("ejs", ejsMate);
 
 // importing logics
 const indexLogic = require("./logic/indexRoute");
+const showLogic = require("./logic/showRoute");
 
 // wrapAsync
 function wrapAsync(fn) {
@@ -48,6 +49,8 @@ app.get("/", async(req, res, next) => {
 
 // index route
 app.get("/employees", wrapAsync(indexLogic.func));
+// show route
+app.get("/employees/:id", wrapAsync(showLogic.func));
 
 // page not found error
 app.use((req, res, next) => {

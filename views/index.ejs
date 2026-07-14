@@ -1,0 +1,37 @@
+<%- layout("./layouts/boilerplate") %>
+
+<section class="page-header">
+    <div>
+        <p class="eyebrow">Employee Dashboard</p>
+        <h2>All Employees</h2>
+    </div>
+    <a href="/employees/new" class="add-btn">+ Add Employee</a>
+</section>
+
+<section class="table-wrap">
+    <table class="employee-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Contact</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (let employee of employees) { %>
+                <tr>
+                    <td><%= employee.empName %></td>
+                    <td><%= employee.empDesignation %></td>
+                    <td>$<%= employee.empSalary %></td>
+                    <td><%= employee.empContact %></td>
+                    <td>
+                        <a href="/employees/<%= employee._id %>/edit" class="action-link">Edit</a>
+                        <a href="/employees/<%= employee._id %>" class="action-link">View</a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</section>

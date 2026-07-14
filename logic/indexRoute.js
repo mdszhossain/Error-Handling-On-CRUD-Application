@@ -5,7 +5,7 @@ const indexLogic = async(req, res, next) => {
     if(employees.length === 0) {
         throw new ExpressError(404, "No Employee Found");
     }
-    res.send(employees);
+    res.render("index.ejs", {employees});
 }
 
 module.exports = {func: indexLogic};
