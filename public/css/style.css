@@ -116,6 +116,31 @@ body {
     margin-right: 0.75rem;
 }
 
+.action-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.delete-form {
+    margin: 0;
+}
+
+.delete-btn {
+    border: none;
+    background: #ef4444;
+    color: white;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
 .detail-card {
     background: white;
     border-radius: 20px;
