@@ -192,3 +192,64 @@ body {
     background: #eff6ff;
     color: #2563eb;
 }
+
+.form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    max-width: 650px;
+    margin: 2rem auto 0;
+}
+
+.form-header {
+    margin-bottom: 1.5rem;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.employee-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input {
+    padding: 0.8rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.form-actions button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+}

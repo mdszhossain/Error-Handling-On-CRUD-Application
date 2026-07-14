@@ -32,6 +32,8 @@ app.engine("ejs", ejsMate);
 // importing logics
 const indexLogic = require("./logic/indexRoute");
 const showLogic = require("./logic/showRoute");
+const editLogic = require("./logic/editRoute");
+const updateLogic = require("./logic/updateLogic.js");
 
 // wrapAsync
 function wrapAsync(fn) {
@@ -51,6 +53,9 @@ app.get("/", async(req, res, next) => {
 app.get("/employees", wrapAsync(indexLogic.func));
 // show route
 app.get("/employees/:id", wrapAsync(showLogic.func));
+// edit route
+app.get("/employees/:id/edit", wrapAsync(editLogic.func));
+app.patch("/employees/:id", wrapAsync(updateLogic.func));
 
 // page not found error
 app.use((req, res, next) => {

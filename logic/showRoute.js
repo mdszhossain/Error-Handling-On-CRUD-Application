@@ -6,8 +6,7 @@ const showLogic = async (req, res, next) => {
     if (!employee) {
         throw new ExpressError(404, "Employee Not Found");
     }
-    // res.render("show.ejs", {employee});
-    res.render("show.ejs", {employee});
+    res.render("show.ejs", { employee });
 };
 
 module.exports = { func: showLogic };

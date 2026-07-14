@@ -1,0 +1,35 @@
+<%- layout("./layouts/boilerplate") %>
+
+<section class="form-card">
+    <div class="form-header">
+        <p class="eyebrow">Update Employee</p>
+        <h2>Edit <%= employeeInfo.empName %></h2>
+    </div>
+
+    <form action="/employees/<%= employeeInfo._id %>?_method=PATCH" method="POST" class="employee-form">
+        <div class="form-group">
+            <label for="empName">Employee Name</label>
+            <input type="text" id="empName" name="empName" value="<%= employeeInfo.empName %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="empDesignation">Designation</label>
+            <input type="text" id="empDesignation" name="empDesignation" value="<%= employeeInfo.empDesignation %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="empSalary">Salary</label>
+            <input type="number" id="empSalary" name="empSalary" value="<%= employeeInfo.empSalary %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="empContact">Contact</label>
+            <input type="text" id="empContact" name="empContact" value="<%= employeeInfo.empContact %>" required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="action-btn primary">Update Employee</button>
+            <a href="/employees/<%= employeeInfo._id %>" class="action-btn secondary">Cancel</a>
+        </div>
+    </form>
+</section>
