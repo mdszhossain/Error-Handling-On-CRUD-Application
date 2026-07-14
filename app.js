@@ -27,6 +27,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public/css")));
 app.use(methodOverride("_method"));
+app.use(express.urlencoded({ extended: true }));
 app.engine("ejs", ejsMate);
 
 // importing logics
@@ -45,9 +46,9 @@ function wrapAsync(fn) {
 }
 
 // root route
-app.get("/", async(req, res, next) => {
+app.get("/", async (req, res, next) => {
     res.redirect("/employees");
-})
+});
 
 // index route
 app.get("/employees", wrapAsync(indexLogic.func));
@@ -62,13 +63,13 @@ app.use((req, res, next) => {
     const err = new Error("Page Not Found");
     err.status = 404;
     next(err);
-})
+});
 
 // error handling middleware
 app.use((err, req, res, next) => {
-    let {status = 500, message = "Some Error"} = err;
+    let { status = 500, message = "Some Error" } = err;
     res.status(status).send(message);
-})
+});
 
 // server listen
 app.listen(PORT, () => {
