@@ -11,7 +11,7 @@ const app = express();
 
 // mongodb connection
 main()
-    .then(async() => {
+    .then(async () => {
         console.log(`Database Connected`);
     })
     .catch((err) => {
@@ -29,7 +29,38 @@ app.use(express.static(path.join(__dirname, "public/css")));
 app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 
+// importing logics
+const indexLogic = require("./logic/indexRoute");
 
+// wrapAsync
+function wrapAsync(fn) {
+    return function (req, res, next) {
+        fn(req, res, next).catch((err) => {
+            next(err);
+        });
+    };
+}
+
+// root route
+app.get("/", async(req, res, next) => {
+    res.redirect("/employees");
+})
+
+// index route
+app.get("/employees", wrapAsync(indexLogic.func));
+
+// page not found error
+app.use((req, res, next) => {
+    const err = new Error("Page Not Found");
+    err.status = 404;
+    next(err);
+})
+
+// error handling middleware
+app.use((err, req, res, next) => {
+    let {status = 500, message = "Some Error"} = err;
+    res.status(status).send(message);
+})
 
 // server listen
 app.listen(PORT, () => {
