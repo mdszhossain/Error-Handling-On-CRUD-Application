@@ -9,7 +9,8 @@ main()
         await initDB();
     })
     .catch((err) => {
-        throw new Error(`Error Appeared ${err}`);
+        console.error(`Error Appeared: ${err}`);
+        process.exit(1);
     });
 async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/office");
